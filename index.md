@@ -182,10 +182,8 @@
 
 
 
-<h2>하위 문서</h2>
-<ul>
-  <li><b>위험도 1</b> — /위험도 1</li>
-  <li><b>위험도 2</b> — /위험도 2</li>
-  <li><b>위험도 3~5</b> — /위험도 3~5</li>
-  <li><b>위험도 6 이상</b> — /위험도 6 이상</li>
-</ul>
+index.html          ← 메인 문서
+risk1.html          ← 위험도 1
+risk2.html          ← 위험도 2
+risk3_5.html        ← 위험도 3~5
+risk6plus.html      ← 위험도 6 이상

@@ -1,8 +1,18 @@
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="ko">
+
 <head>
   <meta charset="UTF-8">
+
+  <meta name="google-site-verification" content="giRin8rn811IDINdKbMIPrMpn83KpaVdt4m9b4EToSU" />
+
+  <title>절대 보면 안되는 영화 - 위험도별 정리</title>
+  <meta name="description" content="심리적·윤리적 위험도를 기준으로 분류한 절대 보면 안되는 영화 목록">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
+<body>
 
 <h2>개요</h2>
 <p>

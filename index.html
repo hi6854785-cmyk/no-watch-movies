@@ -50,7 +50,9 @@
 </p>
 
 <p>
-<b><strong>그러나, 3,4,5단계는 고어나 무서운 거 잘 보는 사람이라도 보지 않는 것을 강력 추천한다.</strong></b>
+<b><strong>그러나, 3,4,5단계는 고어나 무서운 거 잘 보는 사람이라도 보지 않는 것을 강력 추천한다.
+이미 3단계부터 웬만한 시청자들은 보기도 힘든 잔혹한 영화들이 대부분이고, 4단계는 트라우마 가능성이 있으며,
+5단계부터는 심연이 시작되기 시작하는 단계이기 때문이다.</strong></b>
 </p>
 
 <p style="color:red;">
@@ -262,29 +264,3 @@ hi6854785@gmail.com</strong>
 <p>
 부관리자 (2대 제작자): 도겸
 </p>
-
-
-/* ================== 사운드 ================== */
-const bgm=new Audio("./sound/TheDread.mp3");
-const chaseBgm=new Audio("./sound/Anxiety.mp3");
-const phoneConnectSfx=new Audio("./sound/connect.mp3");
-
-bgm.loop = chaseBgm.loop = true;
-bgm.volume = .7;
-chaseBgm.volume = .6;
-
-let audioUnlocked=false;
-function unlockAudio(){
-if(audioUnlocked) return;
-bgm.play().catch(()=>{});
-audioUnlocked=true;
-}
-function playChase(){
-bgm.pause();
-chaseBgm.currentTime=0;
-chaseBgm.play().catch(()=>{});
-}
-function stopChase(){
-chaseBgm.pause();
-bgm.play().catch(()=>{});
-}

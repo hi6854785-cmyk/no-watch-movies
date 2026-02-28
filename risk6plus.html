@@ -158,34 +158,37 @@ padding:20px;
 
   <p style="max-width:500px;">
     본 페이지는 강한 폭력 및 충격적인 내용을 포함하고 있습니다.<br>
-    만 16세 미만의 이용은 권장되지 않습니다.<br>
-    출생년도를 입력해 주십시오.
+    생년월일을 입력해 주세요.
   </p>
 
-  <input type="number" id="birthYear"
-    placeholder="출생년도 입력 (예: 2008)"
-    style="padding:8px; font-size:16px; margin-top:10px; text-align:center;"
-    oninput="checkAge()">
+  <div style="margin-top:10px;">
+    <input type="number" id="birthYear" placeholder="YYYY"
+      style="width:80px; padding:8px; text-align:center;" oninput="checkAge()">
+    <input type="number" id="birthMonth" placeholder="MM"
+      style="width:60px; padding:8px; text-align:center;" oninput="checkAge()">
+    <input type="number" id="birthDay" placeholder="DD"
+      style="width:60px; padding:8px; text-align:center;" oninput="checkAge()">
+  </div>
 
   <div style="margin-top:20px;">
     <button id="agreeBtn" onclick="enterSite()" disabled style="
       padding:10px 20px;
       font-size:16px;
-      cursor:not-allowed;
       background-color:#2ecc71;
       color:white;
       border:none;
       opacity:0.5;
+      cursor:not-allowed;
       margin-right:10px;
     ">동의</button>
 
     <button onclick="leaveSite()" style="
       padding:10px 20px;
       font-size:16px;
-      cursor:pointer;
       background-color:#2ecc71;
       color:white;
       border:none;
+      cursor:pointer;
     ">나가기</button>
   </div>
 
@@ -193,21 +196,41 @@ padding:20px;
 
 <script>
 function checkAge() {
-  const year = document.getElementById("birthYear").value;
-  const currentYear = new Date().getFullYear();
-  const age = currentYear - year;
+  const year = parseInt(document.getElementById("birthYear").value);
+  const month = parseInt(document.getElementById("birthMonth").value);
+  const day = parseInt(document.getElementById("birthDay").value);
 
   const btn = document.getElementById("agreeBtn");
+
+  if (!year || !month || !day) {
+    disableBtn();
+    return;
+  }
+
+  const today = new Date();
+  const birthDate = new Date(year, month - 1, day);
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
 
   if (age >= 16) {
     btn.disabled = false;
     btn.style.opacity = "1";
     btn.style.cursor = "pointer";
   } else {
-    btn.disabled = true;
-    btn.style.opacity = "0.5";
-    btn.style.cursor = "not-allowed";
+    disableBtn();
   }
+}
+
+function disableBtn() {
+  const btn = document.getElementById("agreeBtn");
+  btn.disabled = true;
+  btn.style.opacity = "0.5";
+  btn.style.cursor = "not-allowed";
 }
 
 function enterSite() {
@@ -215,6 +238,6 @@ function enterSite() {
 }
 
 function leaveSite() {
-  window.location.href = "index.html"; // 메인 페이지로 이동
+  window.location.href = "index.html"; // 메인 페이지
 }
 </script>
